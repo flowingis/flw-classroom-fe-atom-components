@@ -1,8 +1,8 @@
 import { FC, useState } from 'react';
 import styles from './app.module.scss';
+import { Input, Select } from './atoms';
 import { Color, getColors } from './services/colors';
 import { Country, getCountries } from './services/countries';
-
 
 const App: FC = () => {
   const [textValue, setTextValue] = useState('textValue')
@@ -25,13 +25,10 @@ const App: FC = () => {
       <main>
         <div className="form-control">
           <label>Text</label>
-          <input
-            className='input_type1'
+          <Input
             type="text"
-            placeholder="Text"
             value={textValue}
-            onChange={(e) => setTextValue(e.target.value)}
-          />
+            onChange={(e) => setTextValue(e)} />
         </div>
         <div>
           <p>{textValue}</p>
@@ -39,90 +36,75 @@ const App: FC = () => {
 
         <div className="form-control">
           <label>Text With Error</label>
-          <input
-            className='input_type1 input_type1--error'
-            type="text"
-            placeholder="Text With Error"
+          <Input
+            status='error'
+            placeholder='Text With Error'
           />
         </div>
 
         <div className="form-control">
           <label>Text With Warning</label>
-          <input
-            className='input_type1 input_type1--warning'
-            type="text"
-            placeholder="Text With Warning"
+          <Input
+            status='warning'
+            placeholder='Text With Warning'
           />
         </div>
 
         <div className="form-control">
           <label>Text With Success</label>
-          <input
-            className='input_type1 input_type1--success'
-            type="text"
-            placeholder="Text With Success"
+          <Input
+            status='success'
+            placeholder='Text With Success'
           />
         </div>
 
         <div className="form-control">
           <label>Password</label>
-          <input
-            className='input_type1'
+          <Input
             type="password"
             placeholder="Password"
             value={passwordValue}
-            onChange={(e) => setPasswordValue(e.target.value)}
+            onChange={(e) => setPasswordValue(e)}
           />
         </div>
 
         <div className="form-control">
           <label>Number</label>
-          <input
-            className='input_type1'
+          <Input
             type="number"
             placeholder="Number"
             value={numberValue}
             min={0}
             max={100}
             step={1}
-            onChange={(e) => setNumberValue(e.target.valueAsNumber)}
+            onChange={(e) => setNumberValue(e || 0)}
           />
         </div>
 
         <div className="form-control">
           <label>Country</label>
-          <select
-            className='select_style1'
+          <Select
+            options={countries}
             value={selectedCountryCode}
-            onChange={e => {
-              setSelectedCountryCode(e.target.value)
-            }}>
-            {countries.map(({ code, name }) => (
-              <option
-                key={code}
-                value={code}
-              >{name}</option>
-            ))}
-          </select>
+            propKey='code'
+            propValue='code'
+            propText='name'
+            onChange={setSelectedCountryCode}
+          />
         </div>
 
         <pre>{JSON.stringify(countries.find(c => c.code === selectedCountryCode) || {})}</pre>
 
         <div className="form-control">
           <label>Color</label>
-          <select
-            className='select_style1'
+          <Select
+            options={colors}
             value={selectColorId}
-            onChange={e => {
-              setSelectColorId(e.target.value)
-            }}>
-            {colors.map(({ id, label }) => (
-              <option
-                key={id}
-                value={id}
-              >{label}</option>
-            ))}
-          </select>
+            propKey='id'
+            propValue='id'
+            propText='label'
+            onChange={setSelectColorId}
+          />
         </div>
 
         <pre>{JSON.stringify(colors.find(c => c.id === selectColorId) || {})}</pre>
