@@ -1,0 +1,98 @@
+<header>
+  <h1>Welcome to Flowing Classroom!</h1>
+</header>
+<main>
+  <div class="form-control">
+    <label>Text</label>
+    <input
+      class="input_type1"
+      type="text"
+      placeholder="Text"
+      [value]="textValue"
+      (input)="onInputTextChange($event)"
+    />
+  </div>
+  <div>
+    <p>{{ textValue }}</p>
+  </div>
+
+  <div class="form-control">
+    <label>Text With Error</label>
+    <input
+      class="input_type1 input_type1--error"
+      type="text"
+      placeholder="Text With Error"
+    />
+  </div>
+
+  <div class="form-control">
+    <label>Text With Warning</label>
+    <input
+      class="input_type1 input_type1--warning"
+      type="text"
+      placeholder="Text With Warning"
+    />
+  </div>
+
+  <div class="form-control">
+    <label>Text With Success</label>
+    <input
+      class="input_type1 input_type1--success"
+      type="text"
+      placeholder="Text With Success"
+    />
+  </div>
+
+  <div class="form-control">
+    <label>Password</label>
+    <input
+      class="input_type1"
+      type="password"
+      placeholder="Password"
+      [value]="passwordValue"
+    />
+  </div>
+
+  <div class="form-control">
+    <label>Number</label>
+    <input
+      class="input_type1"
+      type="number"
+      placeholder="Number"
+      [value]="numberValue"
+      min="0"
+      max="100"
+      step="1"
+    />
+  </div>
+
+  <div class="form-control">
+    <label>Country</label>
+    <select
+      class="select_style1"
+      [ngModel]="selectedCountyCode"
+      (ngModelChange)="onCountryChange($event)"
+    >
+      <option *ngFor="let country of countries" [value]="country.code">
+        {{ country.name }}
+      </option>
+    </select>
+  </div>
+
+  <pre>{{ selectedCounty | json }}</pre>
+
+  <div class="form-control">
+    <label>Color</label>
+    <select
+      class="select_style1"
+      [ngModel]="selectColorId"
+      (ngModelChange)="onColorChange($event)"
+    >
+      <option *ngFor="let color of colors" [value]="color.id">
+        {{ color.label }}
+      </option>
+    </select>
+  </div>
+
+  <pre>{{ selectColor | json }}</pre>
+</main>

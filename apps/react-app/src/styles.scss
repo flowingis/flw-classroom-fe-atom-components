@@ -1,0 +1,110 @@
+/* You can add global styles to this file, and also import other style files */
+
+.input_type1 {
+  outline: none;
+  background-color: #ffffff;
+  border: 1px solid #c9c9d3;
+  border-radius: 4px;
+  color: #131223;
+  padding: 0 12px 0 12px;
+  font-size: 14px;
+  line-height: 24px;
+  height: 48px;
+  &::placeholder {
+    color: #8c8a9f;
+  }
+  &:hover {
+    border-color: #0d0067;
+  }
+  &:focus {
+    border-color: #131223;
+  }
+  &.disable,
+  &[disabled] {
+    color: #8c8a9f;
+    background-color: #f5f5ff;
+    border: none;
+    cursor: not-allowed;
+  }
+  &--error {
+    border-color: #c61811;
+    color: #c61811;
+  }
+  &--warning {
+    border-color: #be5409;
+    color: #be5409;
+  }
+  &--success {
+    border-color: #006531;
+    color: #006531;
+  }
+}
+
+.select_style1 {
+  display: block;
+  font-size: 14px;
+  line-height: 24px;
+  color: #131223;
+  padding: 0.6em 1.8em 0.5em 0.8em;
+  height: 48px;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid #c9c9d3;
+  border-radius: 4px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #ffffff;
+  background-image: url('./assets/img/select_arrow.svg'),
+    linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
+  outline: none;
+  &:hover {
+    border-color: #0d0067;
+  }
+  &:focus {
+    border-color: #131223;
+  }
+  &::-ms-expand {
+    display: none;
+  }
+  option {
+    font-weight: normal;
+  }
+  &.disable,
+  &[disabled] {
+    color: #8c8a9f;
+    background-color: #f5f5ff;
+    border: none;
+    cursor: not-allowed;
+  }
+  &--error {
+    border-color: #c61811;
+    color: #c61811;
+  }
+  &--warning {
+    border-color: #be5409;
+    color: #be5409;
+  }
+  &--success {
+    border-color: #006531;
+    color: #006531;
+  }
+}
+
+.form-control {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 10px 0;
+
+  label {
+    font-size: 14px;
+    line-height: 24px;
+    color: #131223;
+    margin-bottom: 5px;
+  }
+}
