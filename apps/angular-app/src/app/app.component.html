@@ -4,13 +4,7 @@
 <main>
   <div class="form-control">
     <label>Text</label>
-    <input
-      class="input_type1"
-      type="text"
-      placeholder="Text"
-      [value]="textValue"
-      (input)="onInputTextChange($event)"
-    />
+    <flowing-input placeholder="Text" [(value)]="textValue"></flowing-input>
   </div>
   <div>
     <p>{{ textValue }}</p>
@@ -18,80 +12,81 @@
 
   <div class="form-control">
     <label>Text With Error</label>
-    <input
-      class="input_type1 input_type1--error"
-      type="text"
+    <flowing-input
       placeholder="Text With Error"
-    />
+      [(value)]="textValue"
+      status="error"
+    >
+    </flowing-input>
   </div>
 
   <div class="form-control">
     <label>Text With Warning</label>
-    <input
-      class="input_type1 input_type1--warning"
-      type="text"
+    <flowing-input
       placeholder="Text With Warning"
-    />
+      [(value)]="textValue"
+      status="warning"
+    >
+    </flowing-input>
   </div>
 
   <div class="form-control">
     <label>Text With Success</label>
-    <input
-      class="input_type1 input_type1--success"
-      type="text"
+    <flowing-input
       placeholder="Text With Success"
-    />
+      [(value)]="textValue"
+      status="success"
+    >
+    </flowing-input>
   </div>
 
   <div class="form-control">
     <label>Password</label>
-    <input
-      class="input_type1"
+    <flowing-input
       type="password"
       placeholder="Password"
-      [value]="passwordValue"
-    />
+      [(value)]="passwordValue"
+    >
+    </flowing-input>
   </div>
 
   <div class="form-control">
     <label>Number</label>
-    <input
-      class="input_type1"
+    <flowing-input
       type="number"
       placeholder="Number"
-      [value]="numberValue"
-      min="0"
-      max="100"
-      step="1"
-    />
+      [(value)]="numberValue"
+      [min]="0"
+      [max]="100"
+      [step]="1"
+    >
+    </flowing-input>
   </div>
 
   <div class="form-control">
     <label>Country</label>
-    <select
-      class="select_style1"
-      [ngModel]="selectedCountyCode"
-      (ngModelChange)="onCountryChange($event)"
-    >
-      <option *ngFor="let country of countries" [value]="country.code">
-        {{ country.name }}
-      </option>
-    </select>
+    <flowing-select
+      [value]="selectedCountyCode"
+      (valueChange)="onCountryChange($event)"
+      [options]="countries"
+      keyProp="code"
+      valueProp="code"
+      textProp="name"
+    ></flowing-select>
   </div>
 
   <pre>{{ selectedCounty | json }}</pre>
 
   <div class="form-control">
     <label>Color</label>
-    <select
-      class="select_style1"
-      [ngModel]="selectColorId"
-      (ngModelChange)="onColorChange($event)"
-    >
-      <option *ngFor="let color of colors" [value]="color.id">
-        {{ color.label }}
-      </option>
-    </select>
+    <flowing-select
+      [value]="selectColorId"
+      (valueChange)="onColorChange($event)"
+      [options]="colors"
+      keyProp="id"
+      valueProp="id"
+      textProp="label"
+    ></flowing-select>
   </div>
 
   <pre>{{ selectColor | json }}</pre>

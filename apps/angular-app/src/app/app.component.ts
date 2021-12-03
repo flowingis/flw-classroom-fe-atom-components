@@ -29,17 +29,9 @@ export class AppComponent {
       { code: '', name: '' },
       ...countriesService.getCountries(),
     ];
+    this.onCountryChange(this.countries[0].code);
     this.colors = [{ id: '', label: '' }, ...colorsService.getColors()];
-  }
-
-  onInputTextChange(event: Event): void {
-    const newValue = (event.target as HTMLInputElement | null)?.value;
-    this.textValue = newValue;
-  }
-
-  onInputNumberChange(event: Event): void {
-    const newValue = (event.target as HTMLInputElement | null)?.valueAsNumber;
-    this.numberValue = newValue;
+    this.onColorChange(this.colors[0].id);
   }
 
   onCountryChange(newValue: Country['code']): void {
