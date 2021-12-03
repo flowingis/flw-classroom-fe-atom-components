@@ -31,7 +31,7 @@ const App: FC = () => {
       <main>
         <div className="form-control">
           <label>Text</label>
-          <Input value={textValue} onChange={setTextValue} />
+          <Input value={textValue} onChange={setTextValue} placeholder="Text" />
         </div>
         <div>
           <p>{textValue}</p>
@@ -39,53 +39,39 @@ const App: FC = () => {
 
         <div className="form-control">
           <label>Text With Error</label>
-          <input
-            className="input_type1 input_type1--error"
-            type="text"
-            placeholder="Text With Error"
-          />
+          <Input status="error" placeholder="Text With Error" />
         </div>
 
         <div className="form-control">
           <label>Text With Warning</label>
-          <input
-            className="input_type1 input_type1--warning"
-            type="text"
-            placeholder="Text With Warning"
-          />
+          <Input status="warning" placeholder="Text With Warning" />
         </div>
 
         <div className="form-control">
           <label>Text With Success</label>
-          <input
-            className="input_type1 input_type1--success"
-            type="text"
-            placeholder="Text With Success"
-          />
+          <Input status="success" placeholder="Text With Success" />
         </div>
 
         <div className="form-control">
           <label>Password</label>
-          <input
-            className="input_type1"
-            type="password"
+          <Input
             placeholder="Password"
             value={passwordValue}
-            onChange={(e) => setPasswordValue(e.target.value)}
+            onChange={setPasswordValue}
+            type="password"
           />
         </div>
 
         <div className="form-control">
           <label>Number</label>
-          <input
-            className="input_type1"
-            type="number"
+          <Input
             placeholder="Number"
             value={numberValue}
+            onChange={setNumberValue}
+            type="number"
             min={0}
             max={100}
             step={1}
-            onChange={(e) => setNumberValue(e.target.valueAsNumber)}
           />
         </div>
 
