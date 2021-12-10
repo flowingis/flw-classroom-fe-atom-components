@@ -1,6 +1,7 @@
 import { FC, useState } from 'react';
 import styles from './app.module.scss';
 import { Input } from './components/atoms/Input';
+import { Select } from './components/atoms/Select';
 import { Color, getColors } from './services/colors';
 import { Country, getCountries } from './services/countries';
 
@@ -77,19 +78,16 @@ const App: FC = () => {
 
         <div className="form-control">
           <label>Country</label>
-          <select
-            className="select_style1"
+          <Select
             value={selectedCountryCode}
-            onChange={(e) => {
-              setSelectedCountryCode(e.target.value);
+            onChange={(value) => {
+              setSelectedCountryCode(value);
             }}
-          >
-            {countries.map(({ code, name }) => (
-              <option key={code} value={code}>
-                {name}
-              </option>
-            ))}
-          </select>
+            options={countries}
+            propKey={'code'}
+            propText={'name'}
+            propValue={'code'}
+          />
         </div>
 
         <pre>
@@ -100,19 +98,16 @@ const App: FC = () => {
 
         <div className="form-control">
           <label>Color</label>
-          <select
-            className="select_style1"
+          <Select
             value={selectColorId}
-            onChange={(e) => {
-              setSelectColorId(e.target.value);
+            onChange={(value) => {
+              setSelectColorId(value);
             }}
-          >
-            {colors.map(({ id, label }) => (
-              <option key={id} value={id}>
-                {label}
-              </option>
-            ))}
-          </select>
+            options={colors}
+            propKey={'id'}
+            propText={'label'}
+            propValue={'id'}
+          />
         </div>
 
         <pre>
